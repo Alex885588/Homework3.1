@@ -51,20 +51,16 @@ public class Homework {
     public void isOrderAddedInBox() throws InterruptedException {
         webDriver.get("https://time.am");
         webDriver.findElement(By.cssSelector("#title-search-input")).sendKeys("Casio", Keys.ENTER);
-        Thread.sleep(1000);
         webDriver.findElement(By.className("products__item-image-first")).click();
-        Thread.sleep(1000);
         webDriver.findElement(By.xpath("//*[@id=\"page-content\"]/div[2]/div/div[2]/section/div[2]/div/div[6]/a")).click();
-        Thread.sleep(3000);
         webDriver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/div/ul/li[4]/a")).click();
         Thread.sleep(1000);
         Assert.assertEquals(webDriver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/div/ul/li[4]/div[2]/div[2]/div/span[1]")).getText(),"1");
     }
     @Test
-    public void isPageChange() throws InterruptedException{
+    public void isPageChange() {
         webDriver.get("https://time.am");
         webDriver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/ul/li[3]/a")).click();
-        Thread.sleep(1000);
         webDriver.findElement(By.xpath("//*[@id=\"page-content\"]/div/div[3]/section/div/div[3]/div[2]/div/div[1]/a[2]")).click();
         Assert.assertEquals( webDriver.findElement(By.xpath("//*[@id=\"page-content\"]/div/div[3]/section/div/div[3]/div[2]/div/div[1]/a[2]")).getText(),"2" );
     }
